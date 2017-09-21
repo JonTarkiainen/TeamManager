@@ -1,0 +1,2 @@
+android.app.Application
+TeamManager3.TeamManager3
