@@ -4,10 +4,11 @@ using Android.OS;
 using Android.Views;
 using System;
 using System.Collections.Generic;
+using Android.Content.PM;
 
 namespace TeamManager3
 {
-    [Activity(Label = "Ordnung muss sein!")]
+    [Activity(Label = "Ordnung muss sein!", ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : Activity
     {
         RosterDataAdapter listAdapter;
