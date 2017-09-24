@@ -28,6 +28,7 @@ namespace TeamManager3
             SetContentView(Resource.Layout.Main);
             expListView = FindViewById<ExpandableListView>(Resource.Id.RosterListview);
 
+            DataAccess.Initialize();
             FnGetListData();
 
             listAdapter = new RosterDataAdapter(this, listDataHeader, listDataChild);
