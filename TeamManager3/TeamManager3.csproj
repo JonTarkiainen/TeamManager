@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess.cs" />
+    <Compile Include="EditPlayerActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerDataAdapter.cs" />
@@ -93,6 +94,9 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\layout\EditPlayer.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">

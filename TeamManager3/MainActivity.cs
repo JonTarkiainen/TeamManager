@@ -5,6 +5,7 @@ using Android.Views;
 using System;
 using System.Collections.Generic;
 using Android.Content.PM;
+using Android.Content;
 
 namespace TeamManager3
 {
@@ -66,7 +67,6 @@ namespace TeamManager3
                 }
                 listAdapter.NotifyDataSetChanged();
             };
-
         }
 
         void FnGetListData()
