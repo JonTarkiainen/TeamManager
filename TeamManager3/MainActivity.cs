@@ -42,8 +42,6 @@ namespace TeamManager3
                 var groupPosition = e.GroupPosition;
                 var childPosition = e.ChildPosition;
 
-                Toast.MakeText(this, groupPosition.ToString() + "-" + childPosition.ToString(), ToastLength.Short).Show();
-
                 if (groupPosition == 2) //roster
                 {
                     //listAdapter.AddChild(e.GroupPosition, new Player("Niklas", "77"));
@@ -70,13 +68,6 @@ namespace TeamManager3
             };
 
         }
-
-        //void ListViewChildClick(object sender, ExpandableListView.ChildClickEventArgs e)
-        //{
-        //    var listView = sender as ListView;
-        //    //var t = playerList[e.Position];
-        //    Toast.MakeText(this, "something", ToastLength.Long).Show();
-        //}
 
         void FnGetListData()
         {

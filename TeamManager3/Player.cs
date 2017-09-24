@@ -22,18 +22,5 @@ namespace TeamManager3
             this.name = name;
             this.number = number;
         }
-
-        public static List<Player> players()
-        {
-            var playerList = new List<Player>();
-
-            playerList.Add(new Player("Elias", "33"));
-            playerList.Add(new Player("Casper", "55"));
-            playerList.Add(new Player("Algot", "82"));
-
-            return playerList;
-        }
-
-
     }
 }
