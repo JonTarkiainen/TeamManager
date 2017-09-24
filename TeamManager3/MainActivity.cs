@@ -44,7 +44,6 @@ namespace TeamManager3
 
                 if (groupPosition == 2) //roster
                 {
-                    //listAdapter.AddChild(e.GroupPosition, new Player("Niklas", "77"));
                     var player = listAdapter.GetChildObj(groupPosition, childPosition);
 
                     listAdapter.DeleteChild(groupPosition, childPosition);
