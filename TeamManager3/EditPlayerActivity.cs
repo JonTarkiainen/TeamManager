@@ -19,6 +19,8 @@ namespace TeamManager3
         {
             base.OnCreate(savedInstanceState);
 
+            SetContentView(Resource.Layout.EditPlayer);
+
             Button doneButton = FindViewById<Button>(Resource.Id.buttonDone);
 
             doneButton.Click += (sender, e) =>

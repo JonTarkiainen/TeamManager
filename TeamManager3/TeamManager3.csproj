@@ -78,6 +78,7 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButtonClickListener.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="EditPlayerActivity.cs" />
     <Compile Include="MainActivity.cs" />

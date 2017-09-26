@@ -59,14 +59,9 @@ namespace TeamManager3
             TextView txtListChild = (TextView)convertView.FindViewById(Resource.Id.playerName);
             txtListChild.Text = childText;
 
-
             Button edit = (Button)convertView.FindViewById(Resource.Id.buttonEdit);
 
-
-            edit.Click += delegate (object sender, EventArgs e)
-            {
-                Toast.MakeText(context, groupPosition.ToString() + childPosition.ToString(), ToastLength.Short).Show();
-            };
+            edit.SetOnClickListener(new ButtonClickListener(this.context));
 
             return convertView;
         }
