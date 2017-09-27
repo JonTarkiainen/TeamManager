@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace TeamManager3
 {
-    [Activity(Label = "Edit palyer details")]
+    [Activity(Label = "Edit player details")]
     public class EditPlayerActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
