@@ -3,10 +3,15 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-  <ExpandableListView
-    android:id="@+id/RosterListview"
-    android:minWidth="25px"
-    android:minHeight="25px"
+    <ExpandableListView
+        android:id="@+id/RosterListview"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+  <Button
+    android:text="Add player"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+    android:layout_height="wrap_content"
+    android:id="@+id/buttonToAddPlayer" />
 </LinearLayout>

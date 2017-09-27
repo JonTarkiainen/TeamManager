@@ -78,6 +78,7 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPlayer.cs" />
     <Compile Include="ButtonClickListener.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="EditPlayerActivity.cs" />
@@ -96,6 +97,9 @@
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\EditPlayer.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\AddPlayer.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

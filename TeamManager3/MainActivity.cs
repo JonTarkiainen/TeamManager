@@ -67,6 +67,14 @@ namespace TeamManager3
                 }
                 listAdapter.NotifyDataSetChanged();
             };
+
+            Button toAddPlayerButton = FindViewById<Button>(Resource.Id.buttonToAddPlayer);
+
+            toAddPlayerButton.Click += (sender, e) =>
+            {
+                var intent = new Intent(this, typeof(AddPlayer));
+                StartActivity(intent);
+            };
         }
 
         void FnGetListData()
@@ -85,22 +93,23 @@ namespace TeamManager3
             var lstBench = new List<Player>();
 
             var lstRoster = new List<Player>();
-            lstRoster.Add(new Player("Algot", "82"));
-            lstRoster.Add(new Player("Elias", "33"));
-            lstRoster.Add(new Player("Casper", "55"));
-            lstRoster.Add(new Player("Niklas", "55"));
-            lstRoster.Add(new Player("Alvi", "55"));
-            lstRoster.Add(new Player("Max", "55"));
-            lstRoster.Add(new Player("Oscar", "55"));
-            lstRoster.Add(new Player("Daniel", "55"));
-            lstRoster.Add(new Player("Eetu", "55"));
-            lstRoster.Add(new Player("Alvar L", "55"));
-            lstRoster.Add(new Player("Alvar M", "55"));
-            lstRoster.Add(new Player("Joel", "55"));
-            lstRoster.Add(new Player("Wilmer", "55"));
-            lstRoster.Add(new Player("Aaron", "55"));
-            lstRoster.Add(new Player("Oiva", "55"));
-            lstRoster.Add(new Player("Hendri", "55"));
+            lstRoster = Player.GetAllPlayers();
+            //lstRoster.Add(new Player("Algot", "82"));
+            //lstRoster.Add(new Player("Elias", "33"));
+            //lstRoster.Add(new Player("Casper", "55"));
+            //lstRoster.Add(new Player("Niklas", "55"));
+            //lstRoster.Add(new Player("Alvi", "55"));
+            //lstRoster.Add(new Player("Max", "55"));
+            //lstRoster.Add(new Player("Oscar", "55"));
+            //lstRoster.Add(new Player("Daniel", "55"));
+            //lstRoster.Add(new Player("Eetu", "55"));
+            //lstRoster.Add(new Player("Alvar L", "55"));
+            //lstRoster.Add(new Player("Alvar M", "55"));
+            //lstRoster.Add(new Player("Joel", "55"));
+            //lstRoster.Add(new Player("Wilmer", "55"));
+            //lstRoster.Add(new Player("Aaron", "55"));
+            //lstRoster.Add(new Player("Oiva", "55"));
+            //lstRoster.Add(new Player("Hendri", "55"));
 
             // Header, Child data
             listDataChild.Add(listDataHeader[0], lstPitch);

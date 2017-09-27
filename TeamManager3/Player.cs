@@ -27,19 +27,32 @@ namespace TeamManager3
 
         public Player() { }
 
+        public static int InsertPlayer(Player player)
+        {
+            var db = DataAccess.GetConnection();
+
+            return db.Insert(player);
+        }
+
+        public static int DeletePlayer(Player player)
+        {
+            var db = DataAccess.GetConnection();
+
+            return db.Delete(player);
+        }
+
+        public static int UpdatePlayer(Player player)
+        {
+            var db = DataAccess.GetConnection();
+
+            return db.Update(player);
+        }
+
         public static List<Player> GetAllPlayers()
         {
-            var playerList = new List<Player>();
-
             var db = DataAccess.GetConnection();
-            var table = db.Table<Player>();
 
-            foreach(var s in table)
-            {
-                playerList.Add(s);
-            }
-
-            return playerList;
+            return db.Query<Player>("Select * From [Player]");
         }
     }
 }
