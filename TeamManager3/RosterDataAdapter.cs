@@ -60,8 +60,12 @@ namespace TeamManager3
             txtListChild.Text = childText;
 
             Button edit = (Button)convertView.FindViewById(Resource.Id.buttonEdit);
+            edit.Tag = "Edit";
+            Button delete = (Button)convertView.FindViewById(Resource.Id.buttonDelete);
+            delete.Tag = "Delete";
 
-            edit.SetOnClickListener(new ButtonClickListener(this.context));
+            edit.SetOnClickListener(new ButtonClickListener(this.context, GetChildObj(groupPosition, childPosition)));
+            delete.SetOnClickListener(new ButtonClickListener(this.context, GetChildObj(groupPosition, childPosition)));
 
             return convertView;
         }
