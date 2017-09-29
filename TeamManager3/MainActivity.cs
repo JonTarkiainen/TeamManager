@@ -30,6 +30,9 @@ namespace TeamManager3
             SetContentView(Resource.Layout.Main);
             expListView = FindViewById<ExpandableListView>(Resource.Id.RosterListview);
 
+            //var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            //SetActionBar(toolbar);
+
             DataAccess.Initialize();
             FnGetListData();
 

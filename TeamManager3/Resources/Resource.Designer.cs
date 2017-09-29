@@ -84,6 +84,9 @@ namespace TeamManager3
 			// aapt resource value: 0x7f060008
 			public const int buttonToAddPlayer = 2131099656;
 			
+			// aapt resource value: 0x7f060009
+			public const int edit_toolbar = 2131099657;
+			
 			// aapt resource value: 0x7f060001
 			public const int playerName = 2131099649;
 			
