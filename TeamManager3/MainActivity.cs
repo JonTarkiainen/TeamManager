@@ -30,9 +30,6 @@ namespace TeamManager3
             SetContentView(Resource.Layout.Main);
             expListView = FindViewById<ExpandableListView>(Resource.Id.RosterListview);
 
-            //var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            //SetActionBar(toolbar);
-
             DataAccess.Initialize();
             FnGetListData();
 
@@ -72,9 +69,9 @@ namespace TeamManager3
                 listAdapter.NotifyDataSetChanged();
             };
 
-            Button toAddPlayerButton = FindViewById<Button>(Resource.Id.buttonToAddPlayer);
-
-            toAddPlayerButton.Click += (sender, e) =>
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            toolbar.InflateMenu(Resource.Menu.Bottom_Menu);
+            toolbar.MenuItemClick += (sender, e) =>
             {
                 var intent = new Intent(this, typeof(AddPlayerActivity));
                 StartActivity(intent);

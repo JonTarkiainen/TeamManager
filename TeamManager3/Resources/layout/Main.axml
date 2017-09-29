@@ -10,17 +10,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" 
         android:layout_weight="1"/>
-  <Button
-    android:text="Add player"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/buttonToAddPlayer" />
     <Toolbar
-    android:id="@+id/edit_toolbar"
-    android:minHeight="?android:attr/actionBarSize"
-    android:background="?android:attr/colorAccent"
-    android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
-  
+      android:id="@+id/toolbar"
+      android:minHeight="?android:attr/actionBarSize"
+      android:background="?android:attr/colorAccent"
+      android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
 </LinearLayout>

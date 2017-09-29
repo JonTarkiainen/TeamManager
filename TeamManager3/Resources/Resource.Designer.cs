@@ -45,10 +45,16 @@ namespace TeamManager3
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int splash = 2130837504;
+			public const int ic_person_add_black_18dp = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int united = 2130837505;
+			public const int ic_person_add_white_18dp = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int splash = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int united = 2130837507;
 			
 			static Drawable()
 			{
@@ -63,35 +69,35 @@ namespace TeamManager3
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060006
-			public const int DataHeader = 2131099654;
+			// aapt resource value: 0x7f070006
+			public const int DataHeader = 2131165190;
 			
-			// aapt resource value: 0x7f060000
-			public const int DataRow = 2131099648;
+			// aapt resource value: 0x7f070000
+			public const int DataRow = 2131165184;
 			
-			// aapt resource value: 0x7f060007
-			public const int RosterListview = 2131099655;
+			// aapt resource value: 0x7f070007
+			public const int RosterListview = 2131165191;
 			
-			// aapt resource value: 0x7f060003
-			public const int buttonDelete = 2131099651;
+			// aapt resource value: 0x7f070003
+			public const int buttonDelete = 2131165187;
 			
-			// aapt resource value: 0x7f060005
-			public const int buttonDone = 2131099653;
+			// aapt resource value: 0x7f070005
+			public const int buttonDone = 2131165189;
 			
-			// aapt resource value: 0x7f060002
-			public const int buttonEdit = 2131099650;
+			// aapt resource value: 0x7f070002
+			public const int buttonEdit = 2131165186;
 			
-			// aapt resource value: 0x7f060008
-			public const int buttonToAddPlayer = 2131099656;
+			// aapt resource value: 0x7f070009
+			public const int menuAddPlayer = 2131165193;
 			
-			// aapt resource value: 0x7f060009
-			public const int edit_toolbar = 2131099657;
+			// aapt resource value: 0x7f070001
+			public const int playerName = 2131165185;
 			
-			// aapt resource value: 0x7f060001
-			public const int playerName = 2131099649;
+			// aapt resource value: 0x7f070004
+			public const int playerNumber = 2131165188;
 			
-			// aapt resource value: 0x7f060004
-			public const int playerNumber = 2131099652;
+			// aapt resource value: 0x7f070008
+			public const int toolbar = 2131165192;
 			
 			static Id()
 			{
@@ -124,6 +130,22 @@ namespace TeamManager3
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f060000
+			public const int Bottom_Menu = 2131099648;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}
