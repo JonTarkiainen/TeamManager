@@ -92,7 +92,7 @@ namespace TeamManager3
 
         public override Java.Lang.Object GetChild(int groupPosition, int childPosition)
         {
-            return listDataChild[listDataHeader[groupPosition]][childPosition].name;
+            return listDataChild[listDataHeader[groupPosition]][childPosition].number + "-" + listDataChild[listDataHeader[groupPosition]][childPosition].name;
         }
 
         public override long GetChildId(int groupPosition, int childPosition)

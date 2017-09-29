@@ -9,22 +9,23 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Content.PM;
 
 namespace TeamManager3
 {
-    [Activity(Label = "AddPlayer")]
-    public class AddPlayer : Activity
+    [Activity(Label = "AddPlayer", LaunchMode = LaunchMode.SingleInstance, NoHistory = true)]
+    public class AddPlayerActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.AddPlayer);
+            SetContentView(Resource.Layout.EditPlayer);
 
             EditText name = FindViewById<EditText>(Resource.Id.playerName);
             EditText number = FindViewById<EditText>(Resource.Id.playerNumber);
 
-            Button addPlayerButton = FindViewById<Button>(Resource.Id.buttonAddPlayer);
+            Button addPlayerButton = FindViewById<Button>(Resource.Id.buttonDone);
 
             addPlayerButton.Click += (sender, e) =>
             {
@@ -36,7 +37,17 @@ namespace TeamManager3
 
                 var intent = new Intent(this, typeof(MainActivity));
                 StartActivity(intent);
+                Finish();
             };
+        }
+
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+
+            var intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+            Finish();
         }
     }
 }

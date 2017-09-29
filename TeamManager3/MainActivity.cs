@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using Android.Content.PM;
 using Android.Content;
+using Android.Content.Res;
 
 namespace TeamManager3
 {
@@ -72,12 +73,13 @@ namespace TeamManager3
 
             toAddPlayerButton.Click += (sender, e) =>
             {
-                var intent = new Intent(this, typeof(AddPlayer));
+                var intent = new Intent(this, typeof(AddPlayerActivity));
                 StartActivity(intent);
+                Finish();
             };
         }
 
-        void FnGetListData()
+        public void FnGetListData()
         {
             listDataHeader = new List<string>();
             listDataChild = new Dictionary<string, List<Player>>();
@@ -94,22 +96,6 @@ namespace TeamManager3
 
             var lstRoster = new List<Player>();
             lstRoster = Player.GetAllPlayers();
-            //lstRoster.Add(new Player("Algot", "82"));
-            //lstRoster.Add(new Player("Elias", "33"));
-            //lstRoster.Add(new Player("Casper", "55"));
-            //lstRoster.Add(new Player("Niklas", "55"));
-            //lstRoster.Add(new Player("Alvi", "55"));
-            //lstRoster.Add(new Player("Max", "55"));
-            //lstRoster.Add(new Player("Oscar", "55"));
-            //lstRoster.Add(new Player("Daniel", "55"));
-            //lstRoster.Add(new Player("Eetu", "55"));
-            //lstRoster.Add(new Player("Alvar L", "55"));
-            //lstRoster.Add(new Player("Alvar M", "55"));
-            //lstRoster.Add(new Player("Joel", "55"));
-            //lstRoster.Add(new Player("Wilmer", "55"));
-            //lstRoster.Add(new Player("Aaron", "55"));
-            //lstRoster.Add(new Player("Oiva", "55"));
-            //lstRoster.Add(new Player("Hendri", "55"));
 
             // Header, Child data
             listDataChild.Add(listDataHeader[0], lstPitch);

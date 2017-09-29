@@ -9,10 +9,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Content.PM;
 
 namespace TeamManager3
 {
-    [Activity(Label = "Edit player details")]
+    [Activity(Label = "Edit player details", LaunchMode = LaunchMode.SingleInstance, NoHistory = true)]
     public class EditPlayerActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -27,7 +28,17 @@ namespace TeamManager3
             {
                 var intent = new Intent(this, typeof(MainActivity));
                 StartActivity(intent);
+                Finish();
             };
+        }
+
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+
+            var intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+            Finish();
         }
     }
 }

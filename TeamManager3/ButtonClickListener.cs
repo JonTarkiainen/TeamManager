@@ -31,10 +31,14 @@ namespace TeamManager3
             {
                 var intent = new Intent(v.Context, typeof(EditPlayerActivity));
                 v.Context.StartActivity(intent);
+                activity.Finish();
             }
             else if ((string)v.Tag == "Delete")
             {
                 Player.DeletePlayer(this.player);
+                var intent = new Intent(v.Context, typeof(MainActivity));
+                v.Context.StartActivity(intent);
+                activity.Finish();
             }
         }
     }
