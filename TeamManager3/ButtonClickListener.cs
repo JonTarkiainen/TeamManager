@@ -25,11 +25,10 @@ namespace TeamManager3
 
         public void OnClick(View v)
         {
-            Toast.MakeText(this.activity, (string)v.Tag, ToastLength.Short).Show();
-
             if ((string)v.Tag == "Edit")
             {
                 var intent = new Intent(v.Context, typeof(EditPlayerActivity));
+                intent.PutExtra("id", player.id);
                 v.Context.StartActivity(intent);
                 activity.Finish();
             }

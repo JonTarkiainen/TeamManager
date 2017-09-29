@@ -48,6 +48,13 @@ namespace TeamManager3
             return db.Update(player);
         }
 
+        public static Player GetPlayer(int id)
+        {
+            var db = DataAccess.GetConnection();
+
+            return db.Get<Player>(id);
+        }
+
         public static List<Player> GetAllPlayers()
         {
             var db = DataAccess.GetConnection();
