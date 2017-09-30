@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Team manager</string>
+  <string name="name">Nimi</string>
+  <string name="edit">Muokkaa</string>
+  <string name="delete">Poista</string>
+  <string name="done">Valmis</string>
+  <string name="on_pitch">Kentällä</string>
+  <string name="on_bench">Vaihdossa</string>
+  <string name="roster">Rosteri</string>
+</resources>

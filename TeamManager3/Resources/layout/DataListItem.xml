@@ -21,6 +21,7 @@
     android:minHeight="50px"/>
     <Button
       android:text="@string/edit"
+      android:textSize="10sp"
       android:layout_width="0dp"
       android:layout_height="match_parent"
       android:layout_weight="1"
@@ -28,6 +29,7 @@
       android:id="@+id/buttonEdit" />
     <Button
       android:text="@string/delete"
+      android:textSize="10sp"
       android:layout_width="0dp"
       android:layout_height="match_parent"
       android:layout_weight="1"
