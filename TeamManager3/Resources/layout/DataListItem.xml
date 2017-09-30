@@ -2,38 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/DataRow"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
   <LinearLayout
     android:orientation="horizontal"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
     android:text="Name"
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="2"
     android:id="@+id/playerName"
     android:background="#ff3663b9"
-    android:paddingStart="15dp"
-    android:paddingLeft="15dp"
-    android:minHeight="50px"
-    android:layout_marginLeft="2dp"
-    android:layout_marginTop="5dp"
-    android:layout_marginRight="2dp"
-    android:layout_marginBottom="5dp"/>
+    android:layout_margin="15px"
+    android:padding="15px"
+    android:minHeight="50px"/>
     <Button
       android:text="Edit"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
       android:layout_weight="1"
       android:focusable="false"
       android:id="@+id/buttonEdit" />
     <Button
       android:text="Delete"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
       android:layout_weight="1"
       android:focusable="false"
       android:id="@+id/buttonDelete" />
