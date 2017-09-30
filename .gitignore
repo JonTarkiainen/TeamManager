@@ -1,14 +1,3 @@
-TeamManager3/obj/Debug/resolved_assemblies.txt
-TeamManager3/obj/Debug/linksrc/TeamManager3.dll.mdb
-TeamManager3/obj/Debug/linkdst/TeamManager3.dll.mdb
-TeamManager3/obj/Debug/android/manifest/AndroidManifest.xml
-TeamManager3/obj/Debug/android/bin/packaged_resources
-TeamManager3/obj/Debug/android/bin/TeamManager3.TeamManager3.apk
-TeamManager3/obj/Debug/android/assets/TeamManager3.dll.mdb
-TeamManager3/obj/Debug/android/AndroidManifest.xml
-TeamManager3/obj/Debug/TeamManager3.csproj.FileListAbsolute.txt
-TeamManager3/bin/Debug/TeamManager3.dll.mdb
-TeamManager3/bin/Debug/TeamManager3.TeamManager3.apk
-TeamManager3/bin/Debug/TeamManager3.TeamManager3-Signed.apk
+TeamManager3/obj/
+TeamManager3/bin/
 packages/
-TeamManager3/obj/Debug/
