@@ -55,8 +55,15 @@ namespace TeamManager3
 
             ImageButton edit = (ImageButton)convertView.FindViewById(Resource.Id.buttonEdit);
             edit.Tag = "Edit";
+            edit.Focusable = false;
+            edit.FocusableInTouchMode = false;
+            edit.Clickable = true;
+
             ImageButton delete = (ImageButton)convertView.FindViewById(Resource.Id.buttonDelete);
             delete.Tag = "Delete";
+            delete.Focusable = false;
+            delete.FocusableInTouchMode = false;
+            delete.Clickable = true;
 
             edit.SetOnClickListener(new ButtonClickListener(this.context, GetChildObj(groupPosition, childPosition)));
             delete.SetOnClickListener(new ButtonClickListener(this.context, GetChildObj(groupPosition, childPosition)));
