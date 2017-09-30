@@ -10,7 +10,7 @@ using Android.Content.Res;
 
 namespace TeamManager3
 {
-    [Activity(Label = "Ordnung muss sein!", ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/app_name", ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.Locale)]
     public class MainActivity : Activity
     {
         RosterDataAdapter listAdapter;
@@ -85,9 +85,9 @@ namespace TeamManager3
             listDataChild = new Dictionary<string, List<Player>>();
 
             // Adding child data
-            listDataHeader.Add("On pitch");
-            listDataHeader.Add("On bench");
-            listDataHeader.Add("Roster");
+            listDataHeader.Add(Resources.GetText(Resource.String.on_pitch));
+            listDataHeader.Add(Resources.GetText(Resource.String.on_bench));
+            listDataHeader.Add(Resources.GetText(Resource.String.roster));
 
             // Adding child data
             lstPitch = new List<Player>();

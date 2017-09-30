@@ -9,7 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-    android:text="Name"
+    android:text="@string/name"
     android:textAppearance="?android:attr/textAppearanceLarge"
     android:layout_width="0dp"
     android:layout_height="match_parent"
@@ -20,14 +20,14 @@
     android:padding="15px"
     android:minHeight="50px"/>
     <Button
-      android:text="Edit"
+      android:text="@string/edit"
       android:layout_width="0dp"
       android:layout_height="match_parent"
       android:layout_weight="1"
       android:focusable="false"
       android:id="@+id/buttonEdit" />
     <Button
-      android:text="Delete"
+      android:text="@string/delete"
       android:layout_width="0dp"
       android:layout_height="match_parent"
       android:layout_weight="1"

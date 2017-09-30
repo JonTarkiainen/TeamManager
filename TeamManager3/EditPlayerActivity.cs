@@ -13,7 +13,7 @@ using Android.Content.PM;
 
 namespace TeamManager3
 {
-    [Activity(Label = "Edit player details", LaunchMode = LaunchMode.SingleInstance, NoHistory = true)]
+    [Activity(Label = "Edit player details", LaunchMode = LaunchMode.SingleInstance, NoHistory = true, ConfigurationChanges = ConfigChanges.Locale)]
     public class EditPlayerActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

@@ -13,7 +13,7 @@ using Android.Content.PM;
 
 namespace TeamManager3
 {
-    [Activity(Label = "AddPlayer", LaunchMode = LaunchMode.SingleInstance, NoHistory = true)]
+    [Activity(Label = "AddPlayer", LaunchMode = LaunchMode.SingleInstance, NoHistory = true, ConfigurationChanges = ConfigChanges.Locale)]
     public class AddPlayerActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
