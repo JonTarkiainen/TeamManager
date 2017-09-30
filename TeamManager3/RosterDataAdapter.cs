@@ -53,9 +53,9 @@ namespace TeamManager3
             TextView txtListChild = (TextView)convertView.FindViewById(Resource.Id.playerName);
             txtListChild.Text = childText;
 
-            Button edit = (Button)convertView.FindViewById(Resource.Id.buttonEdit);
+            ImageButton edit = (ImageButton)convertView.FindViewById(Resource.Id.buttonEdit);
             edit.Tag = "Edit";
-            Button delete = (Button)convertView.FindViewById(Resource.Id.buttonDelete);
+            ImageButton delete = (ImageButton)convertView.FindViewById(Resource.Id.buttonDelete);
             delete.Tag = "Delete";
 
             edit.SetOnClickListener(new ButtonClickListener(this.context, GetChildObj(groupPosition, childPosition)));

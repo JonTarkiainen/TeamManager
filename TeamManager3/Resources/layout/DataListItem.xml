@@ -13,20 +13,36 @@
     android:textAppearance="?android:attr/textAppearanceLarge"
     android:layout_width="0dp"
     android:layout_height="match_parent"
-    android:layout_weight="2"
+    android:layout_weight="5"
     android:id="@+id/playerName"
     android:background="#ff3663b9"
     android:layout_margin="15px"
     android:padding="15px"
     android:minHeight="50px"/>
-    <Button
+    <ImageButton
+      android:layout_height="match_parent"
+      android:layout_width="0dp"
+      android:layout_weight="1"
+      android:scaleType="fitCenter"
+      android:adjustViewBounds="true"
+      android:src="@drawable/ic_edit_black_18dp"
+      android:id="@+id/buttonEdit" />
+    <ImageButton
+      android:layout_height="match_parent"
+      android:layout_width="0dp"
+      android:layout_weight="1"
+      android:scaleType="fitCenter"
+      android:adjustViewBounds="true"
+      android:src="@drawable/ic_delete_black_18dp"
+      android:id="@+id/buttonDelete" />
+    <!-- <Button
       android:text="@string/edit"
       android:textSize="10sp"
       android:layout_width="0dp"
       android:layout_height="match_parent"
       android:layout_weight="1"
       android:focusable="false"
-      android:id="@+id/buttonEdit" />
+      
     <Button
       android:text="@string/delete"
       android:textSize="10sp"
@@ -34,7 +50,7 @@
       android:layout_height="match_parent"
       android:layout_weight="1"
       android:focusable="false"
-      android:id="@+id/buttonDelete" />
+      android:id="@+id/buttonDelete" /> -->
   </LinearLayout>
 
 </LinearLayout>
