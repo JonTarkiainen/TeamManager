@@ -45,28 +45,33 @@ namespace TeamManager3
         public override View GetChildView(int groupPosition, int childPosition, bool isLastChild, View convertView, ViewGroup parent)
         {
             string childText = (string)GetChild(groupPosition, childPosition);
-            if (convertView == null)
+
+            if (groupPosition == 2)
             {
                 convertView = context.LayoutInflater.Inflate(Resource.Layout.DataListItem, null);
+
+                ImageButton edit = (ImageButton)convertView.FindViewById(Resource.Id.buttonEdit);
+                edit.Tag = "Edit";
+                edit.Focusable = false;
+                edit.FocusableInTouchMode = false;
+                edit.Clickable = true;
+
+                ImageButton delete = (ImageButton)convertView.FindViewById(Resource.Id.buttonDelete);
+                delete.Tag = "Delete";
+                delete.Focusable = false;
+                delete.FocusableInTouchMode = false;
+                delete.Clickable = true;
+
+                edit.SetOnClickListener(new ButtonClickListener(this.context, GetChildObj(groupPosition, childPosition)));
+                delete.SetOnClickListener(new ButtonClickListener(this.context, GetChildObj(groupPosition, childPosition)));
+            }
+            else
+            {
+                convertView = context.LayoutInflater.Inflate(Resource.Layout.DataListItemNoButtons, null);
             }
 
             TextView txtListChild = (TextView)convertView.FindViewById(Resource.Id.playerName);
             txtListChild.Text = childText;
-
-            ImageButton edit = (ImageButton)convertView.FindViewById(Resource.Id.buttonEdit);
-            edit.Tag = "Edit";
-            edit.Focusable = false;
-            edit.FocusableInTouchMode = false;
-            edit.Clickable = true;
-
-            ImageButton delete = (ImageButton)convertView.FindViewById(Resource.Id.buttonDelete);
-            delete.Tag = "Delete";
-            delete.Focusable = false;
-            delete.FocusableInTouchMode = false;
-            delete.Clickable = true;
-
-            edit.SetOnClickListener(new ButtonClickListener(this.context, GetChildObj(groupPosition, childPosition)));
-            delete.SetOnClickListener(new ButtonClickListener(this.context, GetChildObj(groupPosition, childPosition)));
 
             return convertView;
         }
