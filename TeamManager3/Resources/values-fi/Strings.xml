@@ -9,4 +9,5 @@
   <string name="on_bench">Vaihdossa</string>
   <string name="roster">Rosteri</string>
   <string name="add_player">Lisää pelaaja</string>
+  <string name="reset_game">Alusta peli</string>
 </resources>

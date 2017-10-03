@@ -9,4 +9,5 @@
   <string name="on_bench">On Bench</string>
   <string name="roster">Roster</string>
   <string name="add_player">Add player</string>
+  <string name="reset_game">Reset game</string>
 </resources>

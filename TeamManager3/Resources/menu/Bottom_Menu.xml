@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   <item
+     android:id="@+id/menuResetGame"
+     android:icon="@drawable/ic_restore_page_black_18dp"
+     android:showAsAction="ifRoom"
+     android:title="@string/reset_game" />
+  <item
        android:id="@+id/menuAddPlayer"
        android:icon="@drawable/ic_person_add_black_18dp"
        android:showAsAction="ifRoom"

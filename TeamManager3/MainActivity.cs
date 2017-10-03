@@ -29,7 +29,7 @@ namespace TeamManager3
             expListView = FindViewById<ExpandableListView>(Resource.Id.RosterListview);
 
             DataAccess.Initialize();
-            FnGetListData();
+            GetListData();
 
             listAdapter = new RosterDataAdapter(this, listDataHeader, listDataChild);
             expListView.SetAdapter(listAdapter);
@@ -71,13 +71,21 @@ namespace TeamManager3
             toolbar.InflateMenu(Resource.Menu.Bottom_Menu);
             toolbar.MenuItemClick += (sender, e) =>
             {
-                var intent = new Intent(this, typeof(AddPlayerActivity));
-                StartActivity(intent);
-                Finish();
+                if (e.Item.ItemId == Resource.Id.menuAddPlayer)
+                {
+                    var intent = new Intent(this, typeof(AddPlayerActivity));
+                    StartActivity(intent);
+                    Finish();
+                }
+                else if (e.Item.ItemId == Resource.Id.menuResetGame)
+                {
+                    ResetListData();
+                    listAdapter.NotifyDataSetChanged();
+                }
             };
         }
 
-        public void FnGetListData()
+        public void GetListData()
         {
             listDataHeader = new List<string>();
             listDataChild = new Dictionary<string, List<Player>>();
@@ -90,12 +98,26 @@ namespace TeamManager3
             // Adding child data
             lstPitch = new List<Player>();
 
-            var lstBench = new List<Player>();
+            lstBench = new List<Player>();
 
-            var lstRoster = new List<Player>();
+            lstRoster = new List<Player>();
             lstRoster = Player.GetAllPlayers();
 
             // Header, Child data
+            listDataChild.Add(listDataHeader[0], lstPitch);
+            listDataChild.Add(listDataHeader[1], lstBench);
+            listDataChild.Add(listDataHeader[2], lstRoster);
+        }
+
+        public void ResetListData()
+        {
+            lstPitch.Clear();
+            lstBench.Clear();
+            lstRoster.Clear();
+            listDataChild.Clear();
+
+            lstRoster = Player.GetAllPlayers();
+
             listDataChild.Add(listDataHeader[0], lstPitch);
             listDataChild.Add(listDataHeader[1], lstBench);
             listDataChild.Add(listDataHeader[2], lstRoster);
