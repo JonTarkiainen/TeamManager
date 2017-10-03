@@ -8,4 +8,5 @@
   <string name="on_pitch">Kentällä</string>
   <string name="on_bench">Vaihdossa</string>
   <string name="roster">Rosteri</string>
+  <string name="add_player">Lisää pelaaja</string>
 </resources>

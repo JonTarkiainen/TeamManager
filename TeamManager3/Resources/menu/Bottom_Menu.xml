@@ -4,5 +4,5 @@
        android:id="@+id/menuAddPlayer"
        android:icon="@drawable/ic_person_add_black_18dp"
        android:showAsAction="ifRoom"
-       android:title="Add player" />
+       android:title="@string/add_player" />
 </menu>
