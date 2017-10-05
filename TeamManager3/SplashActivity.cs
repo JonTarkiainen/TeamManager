@@ -5,7 +5,7 @@ using Android.OS;
 
 namespace TeamManager3
 {
-    [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true, Icon = "@drawable/united")]
+    [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true, Icon = "@drawable/team_logo")]
     public class SplashActivity : Activity
     {
         public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)

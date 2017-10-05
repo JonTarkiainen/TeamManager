@@ -33,6 +33,7 @@
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <AndroidSupportedAbis />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -127,9 +128,6 @@
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\united.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\menu\Bottom_Menu.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_restore_page_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\team_logo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
