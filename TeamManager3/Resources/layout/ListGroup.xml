@@ -9,6 +9,7 @@
       android:layout_height="wrap_content"
       android:textAppearance="?android:attr/textAppearanceLarge"
       android:text="DataHeader"
+      android:background="#eadf1e"
       android:layout_margin="2dp"
       android:textStyle="bold"
       android:paddingStart="50dp"

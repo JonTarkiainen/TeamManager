@@ -15,7 +15,8 @@
     android:layout_height="match_parent"
     android:layout_weight="5"
     android:id="@+id/playerName"
-    android:background="#ff3663b9"
+    android:background="#141844"
+    android:textColor="#eadf1e"
     android:layout_margin="15px"
     android:padding="15px"
     android:minHeight="50px"/>

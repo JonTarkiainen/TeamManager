@@ -15,7 +15,8 @@
     android:layout_height="match_parent"
     android:layout_weight="5"
     android:id="@+id/playerName"
-    android:background="#ff3663b9"
+    android:background="#141844"
+    android:textColor="#eadf1e"
     android:layout_margin="15px"
     android:padding="15px"
     android:minHeight="50px"/>
@@ -25,6 +26,8 @@
       android:layout_weight="1"
       android:scaleType="fitCenter"
       android:adjustViewBounds="true"
+      android:layout_margin="15px"
+      android:background="#eadf1e"
       android:src="@drawable/ic_edit_black_18dp"
       android:id="@+id/buttonEdit" />
     <ImageButton
@@ -33,6 +36,8 @@
       android:layout_weight="1"
       android:scaleType="fitCenter"
       android:adjustViewBounds="true"
+      android:layout_margin="15px"
+      android:background="#eadf1e"
       android:src="@drawable/ic_delete_black_18dp"
       android:id="@+id/buttonDelete" />
   </LinearLayout>
