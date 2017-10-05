@@ -15,7 +15,6 @@ namespace TeamManager3
         ExpandableListView expListView;
         List<string> listDataHeader;
         Dictionary<string, List<Player>> listDataChild;
-        int previousGroup = -1;
         List<Player> lstPitch;
         List<Player> lstBench;
         List<Player> lstRoster;
@@ -48,21 +47,27 @@ namespace TeamManager3
                     var player = listAdapter.GetChildObj(groupPosition, childPosition);
 
                     listAdapter.DeleteChild(groupPosition, childPosition);
-                    listAdapter.AddChild(groupPosition - 1, player);
+                    player = listAdapter.AddChild(groupPosition - 1, player);
+
+                    Player.UpdatePlayer(player);
                 }
                 else if (groupPosition == 1) //bench
                 {
                     var player = listAdapter.GetChildObj(groupPosition, childPosition);
 
                     listAdapter.DeleteChild(groupPosition, childPosition);
-                    listAdapter.AddChild(groupPosition - 1, player);
+                    player = listAdapter.AddChild(groupPosition - 1, player);
+
+                    Player.UpdatePlayer(player);
                 }
                 else //game
                 {
                     var player = listAdapter.GetChildObj(groupPosition, childPosition);
 
                     listAdapter.DeleteChild(groupPosition, childPosition);
-                    listAdapter.AddChild(groupPosition + 1, player);
+                    player = listAdapter.AddChild(groupPosition + 1, player);
+
+                    Player.UpdatePlayer(player);
                 }
                 listAdapter.NotifyDataSetChanged();
             };
@@ -97,11 +102,14 @@ namespace TeamManager3
 
             // Adding child data
             lstPitch = new List<Player>();
+            lstPitch = Player.GetChildren(0);
 
             lstBench = new List<Player>();
+            lstBench = Player.GetChildren(1);
 
             lstRoster = new List<Player>();
-            lstRoster = Player.GetAllPlayers();
+            lstRoster = Player.GetChildren(2);
+            //lstRoster = Player.GetAllPlayers();
 
             // Header, Child data
             listDataChild.Add(listDataHeader[0], lstPitch);
@@ -116,7 +124,14 @@ namespace TeamManager3
             lstRoster.Clear();
             listDataChild.Clear();
 
-            lstRoster = Player.GetAllPlayers();
+            var lstTemp = Player.GetAllPlayers();
+
+            foreach (Player player in lstTemp)
+            {
+                player.groupPosition = 2;
+                lstRoster.Add(player);
+                Player.UpdatePlayer(player);
+            }
 
             listDataChild.Add(listDataHeader[0], lstPitch);
             listDataChild.Add(listDataHeader[1], lstBench);

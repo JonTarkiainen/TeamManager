@@ -19,10 +19,13 @@ namespace TeamManager3
             this.listDataChild = listDataChild;
         }
 
-        public void AddChild(int groupPosition, Player player)
+        public Player AddChild(int groupPosition, Player player)
         {
             var children = listDataChild[listDataHeader[groupPosition]];
+            player.groupPosition = groupPosition;
             children.Add(player);
+
+            return player;
         }
 
         public void DeleteChild(int groupPosition, int childPosition)

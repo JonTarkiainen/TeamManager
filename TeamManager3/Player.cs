@@ -9,11 +9,13 @@ namespace TeamManager3
         public int id { get; set; }
         public string name { get; set; }
         public string number { get; set; }
+        public int groupPosition { get; set; }
 
         public Player(string name, string number)
         {
             this.name = name;
             this.number = number;
+            this.groupPosition = 2;
         }
 
         public Player() { }
@@ -51,6 +53,20 @@ namespace TeamManager3
             var db = DataAccess.GetConnection();
 
             return db.Query<Player>("Select * From [Player]");
+        }
+
+        public static List<Player> GetChildren(int groupPosition)
+        {
+            var db = DataAccess.GetConnection();
+
+            if (groupPosition == 2)
+            {
+                return db.Query<Player>("Select * from [Player] where ([groupPosition] = ? or [groupPosition] is null)", groupPosition);
+            }
+            else
+            {
+                return db.Query<Player>("Select * from [Player] where [groupPosition] = ?", groupPosition);
+            }
         }
     }
 }
