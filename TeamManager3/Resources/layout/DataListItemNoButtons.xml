@@ -19,6 +19,6 @@
     android:textColor="#eadf1e"
     android:layout_margin="15px"
     android:padding="15px"
-    android:minHeight="50px"/>
+    android:minHeight="25px"/>
   </LinearLayout>
 </LinearLayout>

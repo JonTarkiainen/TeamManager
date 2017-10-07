@@ -6,9 +6,9 @@
     <ExpandableListView
         android:id="@+id/RosterListview"
         android:minWidth="25px"
-        android:minHeight="25px"
+        android:minHeight="20px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
+        android:layout_height="match_parent" 
         android:layout_weight="1"/>
     <Toolbar
       android:id="@+id/toolbar"
