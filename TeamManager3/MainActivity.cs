@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Android.Content.PM;
 using Android.Content;
 using Android.Content.Res;
+using System.Timers;
 
 namespace TeamManager3
 {
@@ -15,9 +16,14 @@ namespace TeamManager3
         ExpandableListView expListView;
         List<string> listDataHeader;
         Dictionary<string, List<Player>> listDataChild;
+        TextView matchTime;
+        Timer timer;
         List<Player> lstPitch;
         List<Player> lstBench;
         List<Player> lstRoster;
+        int min = 0;
+        int sec = 0;
+        bool timerIsRunning = false;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -25,6 +31,7 @@ namespace TeamManager3
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+
             expListView = FindViewById<ExpandableListView>(Resource.Id.RosterListview);
 
             DataAccess.Initialize();
@@ -72,9 +79,11 @@ namespace TeamManager3
                 listAdapter.NotifyDataSetChanged();
             };
 
-            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            toolbar.InflateMenu(Resource.Menu.Bottom_Menu);
-            toolbar.MenuItemClick += (sender, e) =>
+            matchTime = FindViewById<TextView>(Resource.Id.match_time);
+
+            var bottomMenu = FindViewById<Toolbar>(Resource.Id.toolbar_bottom);
+            bottomMenu.InflateMenu(Resource.Menu.Bottom_Menu);
+            bottomMenu.MenuItemClick += (sender, e) =>
             {
                 if (e.Item.ItemId == Resource.Id.menuAddPlayer)
                 {
@@ -87,7 +96,48 @@ namespace TeamManager3
                     ResetListData();
                     listAdapter.NotifyDataSetChanged();
                 }
+                else if (e.Item.ItemId == Resource.Id.menuStartMatchClock)
+                {
+                    if (!timerIsRunning)
+                    {
+                        timer = new Timer();
+                        timer.Interval = 1000;
+                        timer.Elapsed += Timer_Elapsed;
+                        timer.Start();
+                        timerIsRunning = true;
+                    }
+                }
+                else if (e.Item.ItemId == Resource.Id.menuStopMatchClock)
+                {
+                    if (timerIsRunning)
+                    {
+                        timer.Dispose();
+                        timer = null;
+                        timerIsRunning = false;
+                    }
+                }
+                else if (e.Item.ItemId == Resource.Id.menuResetMatchClock)
+                {
+                    if (!timerIsRunning)
+                    {
+                        sec = 0;
+                        min = 0;
+                        RunOnUiThread(() => { matchTime.Text = $"{min.ToString().PadLeft(2, '0')}:{sec.ToString().PadLeft(2, '0')}"; });
+                    }
+                }
             };
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            sec++;
+            if (sec == 60)
+            {
+                min++;
+                sec = 0;
+            }
+
+            RunOnUiThread(() => { matchTime.Text = $"{min.ToString().PadLeft(2, '0')}:{sec.ToString().PadLeft(2, '0')}";});
         }
 
         public void GetListData()

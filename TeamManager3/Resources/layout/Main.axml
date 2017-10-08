@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+  <ExpandableListView
+    android:id="@+id/RosterListview"
+    android:minWidth="25px"
+    android:minHeight="20px"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ExpandableListView
-        android:id="@+id/RosterListview"
-        android:minWidth="25px"
-        android:minHeight="20px"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" 
-        android:layout_weight="1"/>
-    <Toolbar
-      android:id="@+id/toolbar"
-      android:minHeight="?android:attr/actionBarSize"
-      android:layout_margin="2dp"
-      android:background="#eadf1e"
-      android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content" />
+    android:layout_height="match_parent" 
+    android:layout_weight="10"/>
+  <TextView
+    android:id="@+id/match_time"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="00:00"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+  <Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar_bottom"
+    android:minHeight="?android:attr/actionBarSize"
+    android:layout_margin="2dp"
+    android:background="#eadf1e"
+    android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
 </LinearLayout>
