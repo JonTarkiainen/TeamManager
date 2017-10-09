@@ -13,4 +13,5 @@
   <string name="start_match_clock">Start clock</string>
   <string name="stop_match_clock">Stop clock</string>
   <string name="reset_match_clock">Reset clock</string>
+  <string name="reset_scores">Reset scores</string>
 </resources>

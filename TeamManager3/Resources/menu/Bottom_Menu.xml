@@ -16,6 +16,11 @@
     android:showAsAction="always"
     android:title="@string/reset_match_clock" />
   <item
+    android:id="@+id/menuResetScores"
+    android:icon="@drawable/ic_settings_backup_restore_black_18dp"
+    android:showAsAction="ifRoom"
+    android:title="@string/reset_scores" />
+  <item
     android:id="@+id/menuResetGame"
     android:icon="@drawable/ic_restore_page_black_18dp"
     android:showAsAction="ifRoom"

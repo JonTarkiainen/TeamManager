@@ -16,13 +16,13 @@ namespace TeamManager3
         ExpandableListView expListView;
         List<string> listDataHeader;
         Dictionary<string, List<Player>> listDataChild;
-        TextView matchTime;
+        TextView homeScore, awayScore, matchTime;
+        ImageButton homeScoreMinus, homeScorePlus, awayScoreMinus, awayScorePlus;
         Timer timer;
         List<Player> lstPitch;
         List<Player> lstBench;
         List<Player> lstRoster;
-        int min = 0;
-        int sec = 0;
+        int min = 0, sec = 0, homeScoreVal = 0, awayScoreVal = 0;
         bool timerIsRunning = false;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -79,7 +79,42 @@ namespace TeamManager3
                 listAdapter.NotifyDataSetChanged();
             };
 
+            homeScoreMinus = FindViewById<ImageButton>(Resource.Id.home_score_minus);
+            homeScore = FindViewById<TextView>(Resource.Id.home_score);
+            homeScorePlus = FindViewById<ImageButton>(Resource.Id.home_score_plus);
             matchTime = FindViewById<TextView>(Resource.Id.match_time);
+            awayScoreMinus = FindViewById<ImageButton>(Resource.Id.away_score_minus);
+            awayScore = FindViewById<TextView>(Resource.Id.away_score);
+            awayScorePlus = FindViewById<ImageButton>(Resource.Id.away_score_plus);
+
+            homeScoreMinus.Click += (sender, e) => {
+                if (homeScoreVal > 0)
+                {
+                    homeScoreVal--;
+                    homeScore.Text = homeScoreVal.ToString();
+                }
+            };
+
+            homeScorePlus.Click += (sender, e) =>
+            {
+                homeScoreVal++;
+                homeScore.Text = homeScoreVal.ToString();
+            };
+
+            awayScoreMinus.Click += (sender, e) =>
+            {
+                if (awayScoreVal > 0)
+                {
+                    awayScoreVal--;
+                    awayScore.Text = awayScoreVal.ToString();
+                }
+            };
+
+            awayScorePlus.Click += (sender, e) =>
+            {
+                awayScoreVal++;
+                awayScore.Text = awayScoreVal.ToString();
+            };
 
             var bottomMenu = FindViewById<Toolbar>(Resource.Id.toolbar_bottom);
             bottomMenu.InflateMenu(Resource.Menu.Bottom_Menu);
@@ -93,39 +128,69 @@ namespace TeamManager3
                 }
                 else if (e.Item.ItemId == Resource.Id.menuResetGame)
                 {
+                    StopMatchClock();
+                    ResetMatchClock();
+                    ResetScores();
                     ResetListData();
                     listAdapter.NotifyDataSetChanged();
                 }
                 else if (e.Item.ItemId == Resource.Id.menuStartMatchClock)
                 {
-                    if (!timerIsRunning)
-                    {
-                        timer = new Timer();
-                        timer.Interval = 1000;
-                        timer.Elapsed += Timer_Elapsed;
-                        timer.Start();
-                        timerIsRunning = true;
-                    }
+                    StartMatchClock();
                 }
                 else if (e.Item.ItemId == Resource.Id.menuStopMatchClock)
                 {
-                    if (timerIsRunning)
-                    {
-                        timer.Dispose();
-                        timer = null;
-                        timerIsRunning = false;
-                    }
+                    StopMatchClock();
                 }
                 else if (e.Item.ItemId == Resource.Id.menuResetMatchClock)
                 {
-                    if (!timerIsRunning)
-                    {
-                        sec = 0;
-                        min = 0;
-                        RunOnUiThread(() => { matchTime.Text = $"{min.ToString().PadLeft(2, '0')}:{sec.ToString().PadLeft(2, '0')}"; });
-                    }
+                    ResetMatchClock();
+                }
+                else if (e.Item.ItemId == Resource.Id.menuResetScores)
+                {
+                    ResetScores();
                 }
             };
+        }
+
+        private void ResetMatchClock()
+        {
+            if (!timerIsRunning)
+            {
+                sec = 0;
+                min = 0;
+                RunOnUiThread(() => { matchTime.Text = $"{min.ToString().PadLeft(2, '0')}:{sec.ToString().PadLeft(2, '0')}"; });
+            }
+        }
+
+        private void StopMatchClock()
+        {
+            if (timerIsRunning)
+            {
+                timer.Dispose();
+                timer = null;
+                timerIsRunning = false;
+            }
+        }
+
+        private void StartMatchClock()
+        {
+            if (!timerIsRunning)
+            {
+                timer = new Timer();
+                timer.Interval = 1000;
+                timer.Elapsed += Timer_Elapsed;
+                timer.Start();
+                timerIsRunning = true;
+            }
+        }
+
+        private void ResetScores()
+        {
+            homeScoreVal = 0;
+            awayScoreVal = 0;
+            homeScore.Text = homeScoreVal.ToString();
+            awayScore.Text = awayScoreVal.ToString();
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)

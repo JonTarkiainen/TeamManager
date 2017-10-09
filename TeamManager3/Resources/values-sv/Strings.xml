@@ -13,4 +13,5 @@
   <string name="start_match_clock">Starta klockan</string>
   <string name="stop_match_clock">Stoppa klockan</string>
   <string name="reset_match_clock">Återställ klockan</string>
+  <string name="reset_scores">Återställ målen</string>
 </resources>

@@ -13,4 +13,5 @@
   <string name="start_match_clock">Käynnistä kello</string>
   <string name="stop_match_clock">Pysäytä kello</string>
   <string name="reset_match_clock">Nollaa kello</string>
+  <string name="reset_scores">Nollaa maalit</string>
 </resources>
