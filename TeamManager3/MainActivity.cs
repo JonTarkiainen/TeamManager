@@ -87,6 +87,15 @@ namespace TeamManager3
             awayScore = FindViewById<TextView>(Resource.Id.away_score);
             awayScorePlus = FindViewById<ImageButton>(Resource.Id.away_score_plus);
 
+            if (savedInstanceState != null)
+            {
+                homeScoreVal = savedInstanceState.GetInt("home_score");
+                awayScoreVal = savedInstanceState.GetInt("away_score");
+
+                homeScore.Text = homeScoreVal.ToString();
+                awayScore.Text = awayScoreVal.ToString();
+            }
+
             homeScoreMinus.Click += (sender, e) => {
                 if (homeScoreVal > 0)
                 {
@@ -151,6 +160,14 @@ namespace TeamManager3
                     ResetScores();
                 }
             };
+        }
+
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            outState.PutInt("home_score", homeScoreVal);
+            outState.PutInt("away_score", awayScoreVal);
+
+            base.OnSaveInstanceState(outState);
         }
 
         private void ResetMatchClock()
