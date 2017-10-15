@@ -51,7 +51,7 @@ namespace TeamManager3
 
             if (groupPosition == 2)
             {
-                convertView = context.LayoutInflater.Inflate(Resource.Layout.DataListItem, null);
+                convertView = context.LayoutInflater.Inflate(Resource.Layout.DataListItemRoster, null);
 
                 ImageButton edit = (ImageButton)convertView.FindViewById(Resource.Id.buttonEdit);
                 edit.Tag = "Edit";
@@ -70,7 +70,7 @@ namespace TeamManager3
             }
             else
             {
-                convertView = context.LayoutInflater.Inflate(Resource.Layout.DataListItemNoButtons, null);
+                convertView = context.LayoutInflater.Inflate(Resource.Layout.DataListItemGameAndPitch, null);
             }
 
             TextView txtListChild = (TextView)convertView.FindViewById(Resource.Id.playerName);

@@ -119,7 +119,7 @@
     <AndroidResource Include="Resources\layout\ListGroup.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\DataListItem.xml" />
+    <AndroidResource Include="Resources\layout\DataListItemRoster.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\splash.xml" />
@@ -157,7 +157,7 @@
     <AndroidResource Include="Resources\drawable\ic_edit_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\DataListItemNoButtons.xml" />
+    <AndroidResource Include="Resources\layout\DataListItemGameAndPitch.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_restore_page_black_18dp.png" />

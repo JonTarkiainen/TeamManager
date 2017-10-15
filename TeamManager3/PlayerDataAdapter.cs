@@ -26,7 +26,7 @@ namespace TeamManager3
             View newView = convertView; // re-use an existing view, if one is available
 
             if (newView == null) // otherwise create a new one
-                newView = context.LayoutInflater.Inflate(Resource.Layout.DataListItem, null);
+                newView = context.LayoutInflater.Inflate(Resource.Layout.DataListItemRoster, null);
 
             newView.FindViewById<TextView>(Resource.Id.playerName).Text = playerList[position].name;
 

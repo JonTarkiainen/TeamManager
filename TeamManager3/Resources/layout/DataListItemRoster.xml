@@ -9,17 +9,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-    android:text="@string/name"
-    android:textAppearance="?android:attr/textAppearanceLarge"
-    android:layout_width="0dp"
-    android:layout_height="match_parent"
-    android:layout_weight="7"
-    android:id="@+id/playerName"
-    android:background="#141844"
-    android:textColor="#eadf1e"
-    android:layout_margin="15px"
-    android:padding="15px"
-    android:minHeight="25px"/>
+      android:text="@string/name"
+      android:textAppearance="?android:attr/textAppearanceLarge"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="7"
+      android:id="@+id/playerName"
+      android:background="#141844"
+      android:textColor="#eadf1e"
+      android:layout_margin="15px"
+      android:padding="15px"
+      android:minHeight="25px"/>
     <ImageButton
       android:layout_height="match_parent"
       android:layout_width="0dp"
