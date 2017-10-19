@@ -10,12 +10,16 @@ namespace TeamManager3
         public string name { get; set; }
         public string number { get; set; }
         public int groupPosition { get; set; }
+        public bool isGoalkeeper { get; set; }
+        public bool isCaptain { get; set; }
 
         public Player(string name, string number)
         {
             this.name = name;
             this.number = number;
             this.groupPosition = 2;
+            this.isGoalkeeper = false;
+            this.isCaptain = false;
         }
 
         public Player() { }

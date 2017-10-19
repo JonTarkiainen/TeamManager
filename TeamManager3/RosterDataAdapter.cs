@@ -3,6 +3,7 @@
 using Android.App;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
 
 namespace TeamManager3
 {
@@ -47,7 +48,7 @@ namespace TeamManager3
 
         public override View GetChildView(int groupPosition, int childPosition, bool isLastChild, View convertView, ViewGroup parent)
         {
-            string childText = (string)GetChild(groupPosition, childPosition);
+            var player = GetChildObj(groupPosition, childPosition);
 
             if (groupPosition == 2)
             {
@@ -71,10 +72,43 @@ namespace TeamManager3
             else
             {
                 convertView = context.LayoutInflater.Inflate(Resource.Layout.DataListItemGameAndPitch, null);
+
+                Button goalKeeper = (Button)convertView.FindViewById(Resource.Id.buttonGoalkeeper);
+                goalKeeper.Tag = "Goalkeeper";
+                goalKeeper.Focusable = false;
+                goalKeeper.FocusableInTouchMode = false;
+                goalKeeper.Clickable = true;
+
+                if (player.isGoalkeeper)
+                {
+                    goalKeeper.SetTextColor(Color.ParseColor("#ff0000"));
+                }
+                else
+                {
+                    goalKeeper.SetTextColor(Color.ParseColor("#000000"));
+                }
+
+                Button captain = (Button)convertView.FindViewById(Resource.Id.buttonCaptain);
+                captain.Tag = "Captain";
+                captain.Focusable = false;
+                captain.FocusableInTouchMode = false;
+                captain.Clickable = true;
+
+                if (player.isCaptain)
+                {
+                    captain.SetTextColor(Color.ParseColor("#ff0000"));
+                }
+                else
+                {
+                    captain.SetTextColor(Color.ParseColor("#000000"));
+                }
+
+                goalKeeper.SetOnClickListener(new ButtonClickListener(this.context, GetChildObj(groupPosition, childPosition)));
+                captain.SetOnClickListener(new ButtonClickListener(this.context, GetChildObj(groupPosition, childPosition)));
             }
 
             TextView txtListChild = (TextView)convertView.FindViewById(Resource.Id.playerName);
-            txtListChild.Text = childText;
+            txtListChild.Text = player.number + "-" + player.name;
 
             return convertView;
         }

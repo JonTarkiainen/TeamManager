@@ -1,7 +1,9 @@
 ﻿
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.Views;
+using Android.Widget;
 
 namespace TeamManager3
 {
@@ -31,6 +33,40 @@ namespace TeamManager3
                 var intent = new Intent(v.Context, typeof(MainActivity));
                 v.Context.StartActivity(intent);
                 activity.Finish();
+            }
+            else if ((string)v.Tag == "Goalkeeper")
+            {
+                Button button = (Button)v.FindViewById(Resource.Id.buttonGoalkeeper);
+
+                if (player.isGoalkeeper)
+                {
+                    button.SetTextColor(Color.ParseColor("#000000"));
+                    player.isGoalkeeper = false;
+                    Player.UpdatePlayer(player);
+                }
+                else
+                {
+                    button.SetTextColor(Color.ParseColor("#ff0000"));
+                    player.isGoalkeeper = true;
+                    Player.UpdatePlayer(player);
+                }                
+            }
+            else if ((string)v.Tag == "Captain")
+            {
+                Button button = (Button)v.FindViewById(Resource.Id.buttonCaptain);
+
+                if (player.isCaptain)
+                {
+                    button.SetTextColor(Color.ParseColor("#000000"));
+                    player.isCaptain = false;
+                    Player.UpdatePlayer(player);
+                }
+                else
+                {
+                    button.SetTextColor(Color.ParseColor("#ff0000"));
+                    player.isCaptain = true;
+                    Player.UpdatePlayer(player);
+                }
             }
         }
     }
