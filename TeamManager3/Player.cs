@@ -59,6 +59,17 @@ namespace TeamManager3
             return db.Query<Player>("Select * From [Player]");
         }
 
+        public static Player GetCaptain()
+        {
+            var db = DataAccess.GetConnection();
+
+            var captains = from p in db.Table<Player>()
+                   where p.isCaptain == true
+                   select p;
+
+            return captains.FirstOrDefault();
+        }
+
         public static List<Player> GetChildren(int groupPosition)
         {
             var db = DataAccess.GetConnection();
