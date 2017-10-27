@@ -71,10 +71,13 @@ namespace TeamManager3
                 {
                     var player = listAdapter.GetChildObj(groupPosition, childPosition);
 
-                    listAdapter.DeleteChild(groupPosition, childPosition);
-                    player = listAdapter.AddChild(groupPosition + 1, player);
+                    if (!player.isGoalkeeper)
+                    {
+                        listAdapter.DeleteChild(groupPosition, childPosition);
+                        player = listAdapter.AddChild(groupPosition + 1, player);
 
-                    Player.UpdatePlayer(player);
+                        Player.UpdatePlayer(player);
+                    }
                 }
                 listAdapter.NotifyDataSetChanged();
             };
