@@ -41,39 +41,50 @@ namespace TeamManager3
             {
                 Button button = (Button)v.FindViewById(Resource.Id.buttonCaptain);
                 SetCaptain(player, button);
+                RefreshView(v);
             }
         }
 
         private void SetGoalkeeper(Player goalkeeperPlayer, Button goalkeeperButton)
         {
-            if (player.isGoalkeeper)
+            if (goalkeeperPlayer.isGoalkeeper)
             {
                 goalkeeperPlayer.isGoalkeeper = false;
                 Player.UpdatePlayer(goalkeeperPlayer);
             }
             else
             {
+                var currentGoalkeeper = Player.GetGoalkeeper();
+
+                if (currentGoalkeeper != null)
+                {
+                    currentGoalkeeper.isGoalkeeper = false;
+                    Player.UpdatePlayer(currentGoalkeeper);
+                }
+
                 goalkeeperPlayer.isGoalkeeper = true;
                 goalkeeperPlayer.groupPosition = 0;
                 Player.UpdatePlayer(goalkeeperPlayer);
-
-                var currentGoalkeeper = Player.GetGoalkeeper();
-                currentGoalkeeper.isGoalkeeper = false;
-                Player.UpdatePlayer(currentGoalkeeper);
             }
         }
 
         private void SetCaptain (Player captainPlayer, Button captainButton)
         {
-            if (player.isCaptain)
+            if (captainPlayer.isCaptain)
             {
-                captainButton.SetTextColor(Color.ParseColor("#000000"));
                 captainPlayer.isCaptain = false;
                 Player.UpdatePlayer(captainPlayer);
             }
             else
             {
-                captainButton.SetTextColor(Color.ParseColor("#ff0000"));
+                var currentCaptain = Player.GetCaptain();
+
+                if (currentCaptain != null)
+                {
+                    currentCaptain.isCaptain = false;
+                    Player.UpdatePlayer(currentCaptain);
+                }
+
                 captainPlayer.isCaptain = true;
                 Player.UpdatePlayer(captainPlayer);
             }
