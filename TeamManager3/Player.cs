@@ -70,6 +70,17 @@ namespace TeamManager3
             return captains.FirstOrDefault();
         }
 
+        public static Player GetGoalkeeper()
+        {
+            var db = DataAccess.GetConnection();
+
+            var goalkeepers = from p in db.Table<Player>()
+                           where p.isGoalkeeper == true
+                           select p;
+
+            return goalkeepers.FirstOrDefault();
+        }
+
         public static List<Player> GetChildren(int groupPosition)
         {
             var db = DataAccess.GetConnection();

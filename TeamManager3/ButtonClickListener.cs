@@ -24,20 +24,18 @@ namespace TeamManager3
             {
                 var intent = new Intent(v.Context, typeof(EditPlayerActivity));
                 intent.PutExtra("id", player.id);
-                v.Context.StartActivity(intent);
-                activity.Finish();
+                RefreshView(v);
             }
             else if ((string)v.Tag == "Delete")
             {
                 Player.DeletePlayer(this.player);
-                var intent = new Intent(v.Context, typeof(MainActivity));
-                v.Context.StartActivity(intent);
-                activity.Finish();
+                RefreshView(v);
             }
             else if ((string)v.Tag == "Goalkeeper")
             {
                 Button button = (Button)v.FindViewById(Resource.Id.buttonGoalkeeper);
                 SetGoalkeeper(player, button);
+                RefreshView(v);
             }
             else if ((string)v.Tag == "Captain")
             {
@@ -50,15 +48,18 @@ namespace TeamManager3
         {
             if (player.isGoalkeeper)
             {
-                goalkeeperButton.SetTextColor(Color.ParseColor("#000000"));
                 goalkeeperPlayer.isGoalkeeper = false;
                 Player.UpdatePlayer(goalkeeperPlayer);
             }
             else
             {
-                goalkeeperButton.SetTextColor(Color.ParseColor("#ff0000"));
                 goalkeeperPlayer.isGoalkeeper = true;
+                goalkeeperPlayer.groupPosition = 0;
                 Player.UpdatePlayer(goalkeeperPlayer);
+
+                var currentGoalkeeper = Player.GetGoalkeeper();
+                currentGoalkeeper.isGoalkeeper = false;
+                Player.UpdatePlayer(currentGoalkeeper);
             }
         }
 
@@ -76,6 +77,13 @@ namespace TeamManager3
                 captainPlayer.isCaptain = true;
                 Player.UpdatePlayer(captainPlayer);
             }
+        }
+
+        private void RefreshView(View view)
+        {
+            var intent = new Intent(view.Context, typeof(MainActivity));
+            view.Context.StartActivity(intent);
+            activity.Finish();
         }
     }
 }
