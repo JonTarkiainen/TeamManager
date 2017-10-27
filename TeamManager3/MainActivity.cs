@@ -82,6 +82,24 @@ namespace TeamManager3
                 listAdapter.NotifyDataSetChanged();
             };
 
+            expListView.ItemLongClick += delegate (object sender, AdapterView.ItemLongClickEventArgs e)
+            {
+                var listPosition = expListView.GetExpandableListPosition(e.Position);
+                var groupPosition = ExpandableListView.GetPackedPositionGroup(listPosition);
+                var childPosition = ExpandableListView.GetPackedPositionChild(listPosition);
+
+                if (groupPosition == 1 || groupPosition == 0)
+                {
+                    var player = listAdapter.GetChildObj(groupPosition, childPosition);
+
+                    listAdapter.DeleteChild(groupPosition, childPosition);
+                    player = listAdapter.AddChild(2, player);
+
+                    Player.UpdatePlayer(player);
+                }
+                listAdapter.NotifyDataSetChanged();
+            };
+
             homeScoreMinus = FindViewById<ImageButton>(Resource.Id.home_score_minus);
             homeScore = FindViewById<TextView>(Resource.Id.home_score);
             homeScorePlus = FindViewById<ImageButton>(Resource.Id.home_score_plus);
