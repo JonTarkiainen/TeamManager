@@ -22,8 +22,8 @@ namespace TeamManager3
             int id = Intent.GetIntExtra("id", 0);
 
             var player = Player.GetPlayer(id);
-            name.Text = player.name;
-            number.Text = player.number;
+            name.Text = player.Name;
+            number.Text = player.Number;
 
             Button doneButton = FindViewById<Button>(Resource.Id.buttonDone);
 
@@ -31,8 +31,8 @@ namespace TeamManager3
             {
                 if (!string.IsNullOrWhiteSpace(name.Text) && !string.IsNullOrWhiteSpace(number.Text))
                 {
-                    player.name = name.Text;
-                    player.number = number.Text;
+                    player.Name = name.Text;
+                    player.Number = number.Text;
 
                     var result = Player.UpdatePlayer(player);
                 }

@@ -28,7 +28,7 @@ namespace TeamManager3
             if (newView == null) // otherwise create a new one
                 newView = context.LayoutInflater.Inflate(Resource.Layout.DataListItemRoster, null);
 
-            newView.FindViewById<TextView>(Resource.Id.playerName).Text = playerList[position].name;
+            newView.FindViewById<TextView>(Resource.Id.playerName).Text = playerList[position].Name;
 
             return newView;
         }

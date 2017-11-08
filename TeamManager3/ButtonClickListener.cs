@@ -23,7 +23,7 @@ namespace TeamManager3
             if ((string)v.Tag == "Edit")
             {
                 var intent = new Intent(v.Context, typeof(EditPlayerActivity));
-                intent.PutExtra("id", player.id);
+                intent.PutExtra("id", player.Id);
                 RefreshView(v);
             }
             else if ((string)v.Tag == "Delete")
@@ -47,9 +47,9 @@ namespace TeamManager3
 
         private void SetGoalkeeper(Player goalkeeperPlayer, Button goalkeeperButton)
         {
-            if (goalkeeperPlayer.isGoalkeeper)
+            if (goalkeeperPlayer.IsGoalkeeper)
             {
-                goalkeeperPlayer.isGoalkeeper = false;
+                goalkeeperPlayer.IsGoalkeeper = false;
                 Player.UpdatePlayer(goalkeeperPlayer);
             }
             else
@@ -58,21 +58,21 @@ namespace TeamManager3
 
                 if (currentGoalkeeper != null)
                 {
-                    currentGoalkeeper.isGoalkeeper = false;
+                    currentGoalkeeper.IsGoalkeeper = false;
                     Player.UpdatePlayer(currentGoalkeeper);
                 }
 
-                goalkeeperPlayer.isGoalkeeper = true;
-                goalkeeperPlayer.groupPosition = 0;
+                goalkeeperPlayer.IsGoalkeeper = true;
+                goalkeeperPlayer.GroupPosition = 0;
                 Player.UpdatePlayer(goalkeeperPlayer);
             }
         }
 
         private void SetCaptain (Player captainPlayer, Button captainButton)
         {
-            if (captainPlayer.isCaptain)
+            if (captainPlayer.IsCaptain)
             {
-                captainPlayer.isCaptain = false;
+                captainPlayer.IsCaptain = false;
                 Player.UpdatePlayer(captainPlayer);
             }
             else
@@ -81,11 +81,11 @@ namespace TeamManager3
 
                 if (currentCaptain != null)
                 {
-                    currentCaptain.isCaptain = false;
+                    currentCaptain.IsCaptain = false;
                     Player.UpdatePlayer(currentCaptain);
                 }
 
-                captainPlayer.isCaptain = true;
+                captainPlayer.IsCaptain = true;
                 Player.UpdatePlayer(captainPlayer);
             }
         }

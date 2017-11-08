@@ -71,7 +71,7 @@ namespace TeamManager3
                 {
                     var player = listAdapter.GetChildObj(groupPosition, childPosition);
 
-                    if (!player.isGoalkeeper)
+                    if (!player.IsGoalkeeper)
                     {
                         listAdapter.DeleteChild(groupPosition, childPosition);
                         player = listAdapter.AddChild(groupPosition + 1, player);
@@ -285,7 +285,7 @@ namespace TeamManager3
 
             foreach (Player player in lstTemp)
             {
-                player.groupPosition = 2;
+                player.GroupPosition = 2;
                 lstRoster.Add(player);
                 Player.UpdatePlayer(player);
             }

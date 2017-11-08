@@ -6,20 +6,20 @@ namespace TeamManager3
     public class Player
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
-        public int id { get; set; }
-        public string name { get; set; }
-        public string number { get; set; }
-        public int groupPosition { get; set; }
-        public bool isGoalkeeper { get; set; }
-        public bool isCaptain { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Number { get; set; }
+        public int GroupPosition { get; set; }
+        public bool IsGoalkeeper { get; set; }
+        public bool IsCaptain { get; set; }
 
         public Player(string name, string number)
         {
-            this.name = name;
-            this.number = number;
-            this.groupPosition = 2;
-            this.isGoalkeeper = false;
-            this.isCaptain = false;
+            Name = name;
+            Number = number;
+            GroupPosition = 2;
+            IsGoalkeeper = false;
+            IsCaptain = false;
         }
 
         public Player() { }
@@ -64,7 +64,7 @@ namespace TeamManager3
             var db = DataAccess.GetConnection();
 
             var captains = from p in db.Table<Player>()
-                   where p.isCaptain == true
+                   where p.IsCaptain == true
                    select p;
 
             return captains.FirstOrDefault();
@@ -75,7 +75,7 @@ namespace TeamManager3
             var db = DataAccess.GetConnection();
 
             var goalkeepers = from p in db.Table<Player>()
-                           where p.isGoalkeeper == true
+                           where p.IsGoalkeeper == true
                            select p;
 
             return goalkeepers.FirstOrDefault();

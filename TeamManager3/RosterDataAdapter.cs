@@ -23,7 +23,7 @@ namespace TeamManager3
         public Player AddChild(int groupPosition, Player player)
         {
             var children = listDataChild[listDataHeader[groupPosition]];
-            player.groupPosition = groupPosition;
+            player.GroupPosition = groupPosition;
             children.Add(player);
 
             return player;
@@ -79,7 +79,7 @@ namespace TeamManager3
                 goalKeeper.FocusableInTouchMode = false;
                 goalKeeper.Clickable = true;
 
-                if (player.isGoalkeeper)
+                if (player.IsGoalkeeper)
                 {
                     goalKeeper.SetTextColor(Color.ParseColor("#ff0000"));
                 }
@@ -94,7 +94,7 @@ namespace TeamManager3
                 captain.FocusableInTouchMode = false;
                 captain.Clickable = true;
 
-                if (player.isCaptain)
+                if (player.IsCaptain)
                 {
                     captain.SetTextColor(Color.ParseColor("#ff0000"));
                 }
@@ -108,7 +108,7 @@ namespace TeamManager3
             }
 
             TextView txtListChild = (TextView)convertView.FindViewById(Resource.Id.playerName);
-            txtListChild.Text = player.number + "-" + player.name;
+            txtListChild.Text = player.Number + "-" + player.Name;
 
             return convertView;
         }
@@ -135,7 +135,7 @@ namespace TeamManager3
 
         public override Java.Lang.Object GetChild(int groupPosition, int childPosition)
         {
-            return listDataChild[listDataHeader[groupPosition]][childPosition].number + "-" + listDataChild[listDataHeader[groupPosition]][childPosition].name;
+            return listDataChild[listDataHeader[groupPosition]][childPosition].Number + "-" + listDataChild[listDataHeader[groupPosition]][childPosition].Name;
         }
 
         public override long GetChildId(int groupPosition, int childPosition)
