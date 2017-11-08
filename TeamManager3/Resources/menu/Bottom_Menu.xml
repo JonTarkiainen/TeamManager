@@ -6,6 +6,11 @@
      android:showAsAction="always"
      android:title="@string/start_match_clock" />
   <item
+    android:id="@+id/menuPauseMatchClock"
+    android:icon="@drawable/ic_pause_black_18dp"
+    android:showAsAction="always"
+    android:title="@string/pause_match_clock" />
+  <item
     android:id="@+id/menuStopMatchClock"
     android:icon="@drawable/ic_stop_black_18dp"
     android:showAsAction="always"

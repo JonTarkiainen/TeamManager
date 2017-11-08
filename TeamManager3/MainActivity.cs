@@ -172,6 +172,10 @@ namespace TeamManager3
                 {
                     StopMatchClock();
                 }
+                else if (e.Item.ItemId == Resource.Id.menuPauseMatchClock)
+                {
+                    StopMatchClock();
+                }
                 else if (e.Item.ItemId == Resource.Id.menuResetMatchClock)
                 {
                     ResetMatchClock();
