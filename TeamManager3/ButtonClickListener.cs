@@ -24,7 +24,8 @@ namespace TeamManager3
             {
                 var intent = new Intent(v.Context, typeof(EditPlayerActivity));
                 intent.PutExtra("id", player.Id);
-                RefreshView(v);
+                v.Context.StartActivity(intent);
+                activity.Finish();
             }
             else if ((string)v.Tag == "Delete")
             {
