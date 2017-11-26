@@ -15,4 +15,10 @@
   <string name="pause_match_clock">Pause</string>
   <string name="reset_match_clock">Reset clock</string>
   <string name="reset_scores">Reset scores</string>
+  <string name="delete_player">Delete player?</string>
+  <string name="yes">Yes</string>
+  <string name="no">No</string>
+  <string name="reset_game">Reset game?</string>
+  <string name="reset_match_clock">Reset match clock?</string>
+  <string name="reset_scores">Reset scores?</string>
 </resources>

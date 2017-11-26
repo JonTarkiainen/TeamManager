@@ -15,4 +15,10 @@
   <string name="pause_match_clock">Tauko</string>
   <string name="reset_match_clock">Nollaa kello</string>
   <string name="reset_scores">Nollaa maalit</string>
+  <string name="delete_player">Poista pelaaja?</string>
+  <string name="yes">Kyllä</string>
+  <string name="no">Ei</string>
+  <string name="reset_game">Alusta peli?</string>
+  <string name="reset_match_clock">Nollaa kello?</string>
+  <string name="reset_scores">Nollaa maalit?</string>
 </resources>
