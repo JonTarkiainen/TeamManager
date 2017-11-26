@@ -14,4 +14,10 @@
   <string name="stop_match_clock">Stoppa klockan</string>
   <string name="reset_match_clock">Återställ klockan</string>
   <string name="reset_scores">Återställ målen</string>
+  <string name="delete_player">Ta bort spelare?</string>
+  <string name="yes">Ja</string>
+  <string name="no">Nej</string>
+  <string name="reset_game">Återställ match?</string>
+  <string name="reset_match_clock">Återställ klockan?</string>
+  <string name="reset_scores">Åteställ målen?</string>
 </resources>

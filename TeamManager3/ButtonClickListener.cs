@@ -1,7 +1,7 @@
 ﻿
 using Android.App;
 using Android.Content;
-using Android.Graphics;
+using Android.Content.Res;
 using Android.Views;
 using Android.Widget;
 
@@ -29,8 +29,16 @@ namespace TeamManager3
             }
             else if ((string)v.Tag == "Delete")
             {
-                Player.DeletePlayer(this.player);
-                RefreshView(v);
+                var builder = new AlertDialog.Builder(v.Context);
+
+                builder.SetMessage(v.Resources.GetString(Resource.String.delete_player));
+                builder.SetNegativeButton(v.Resources.GetString(Resource.String.no), (s, e) => { });
+                builder.SetPositiveButton(v.Resources.GetString(Resource.String.yes), (s, e) => {
+                    Player.DeletePlayer(player);
+                    RefreshView(v);
+                });
+                
+                builder.Create().Show();
             }
             else if ((string)v.Tag == "Goalkeeper")
             {

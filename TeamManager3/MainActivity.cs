@@ -158,11 +158,20 @@ namespace TeamManager3
                 }
                 else if (e.Item.ItemId == Resource.Id.menuResetGame)
                 {
-                    StopMatchClock();
-                    ResetMatchClock();
-                    ResetScores();
-                    ResetListData();
-                    listAdapter.NotifyDataSetChanged();
+                    var builder = new AlertDialog.Builder(this);
+
+                    builder.SetMessage(Resources.GetString(Resource.String.reset_game));
+                    builder.SetNegativeButton(Resources.GetString(Resource.String.no), (s, ee) => { });
+                    builder.SetPositiveButton(Resources.GetString(Resource.String.yes), (s, ee) =>
+                    {
+                        StopMatchClock();
+                        ResetMatchClock();
+                        ResetScores();
+                        ResetListData();
+                        listAdapter.NotifyDataSetChanged();
+                    });
+
+                    builder.Create().Show();
                 }
                 else if (e.Item.ItemId == Resource.Id.menuStartMatchClock)
                 {
@@ -174,11 +183,29 @@ namespace TeamManager3
                 }
                 else if (e.Item.ItemId == Resource.Id.menuResetMatchClock)
                 {
-                    ResetMatchClock();
+                    var builder = new AlertDialog.Builder(this);
+
+                    builder.SetMessage(Resources.GetString(Resource.String.reset_match_clock));
+                    builder.SetNegativeButton(Resources.GetString(Resource.String.no), (s, ee) => { });
+                    builder.SetPositiveButton(Resources.GetString(Resource.String.yes), (s, ee) =>
+                    {
+                        ResetMatchClock();
+                    });
+
+                    builder.Create().Show();
                 }
                 else if (e.Item.ItemId == Resource.Id.menuResetScores)
                 {
-                    ResetScores();
+                    var builder = new AlertDialog.Builder(this);
+
+                    builder.SetMessage(Resources.GetString(Resource.String.reset_scores));
+                    builder.SetNegativeButton(Resources.GetString(Resource.String.no), (s, ee) => { });
+                    builder.SetPositiveButton(Resources.GetString(Resource.String.yes), (s, ee) =>
+                    {
+                        ResetScores();
+                    });
+
+                    builder.Create().Show();
                 }
             };
         }
