@@ -83,6 +83,7 @@
     <Compile Include="ButtonClickListener.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="EditPlayerActivity.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="GameLog.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Player.cs" />

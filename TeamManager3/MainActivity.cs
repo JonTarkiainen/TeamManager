@@ -24,17 +24,30 @@ namespace TeamManager3
         List<Player> lstRoster;
         int min = 0, sec = 0, homeScoreVal = 0, awayScoreVal = 0;
         bool timerIsRunning = false;
-
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            DataAccess.Initialize();
+
+            homeScoreVal = Game.LoadHomeScore();
+            awayScoreVal = Game.LoadAwayScore();
+
+            if (savedInstanceState != null)
+            {
+                homeScoreVal = savedInstanceState.GetInt("home_score");
+                awayScoreVal = savedInstanceState.GetInt("away_score");
+
+                homeScore.Text = homeScoreVal.ToString();
+                awayScore.Text = awayScoreVal.ToString();
+            }
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
             expListView = FindViewById<ExpandableListView>(Resource.Id.RosterListview);
 
-            DataAccess.Initialize();
             GetListData();
 
             listAdapter = new RosterDataAdapter(this, listDataHeader, listDataChild);
@@ -108,20 +121,15 @@ namespace TeamManager3
             awayScore = FindViewById<TextView>(Resource.Id.away_score);
             awayScorePlus = FindViewById<ImageButton>(Resource.Id.away_score_plus);
 
-            if (savedInstanceState != null)
-            {
-                homeScoreVal = savedInstanceState.GetInt("home_score");
-                awayScoreVal = savedInstanceState.GetInt("away_score");
-
-                homeScore.Text = homeScoreVal.ToString();
-                awayScore.Text = awayScoreVal.ToString();
-            }
+            homeScore.Text = homeScoreVal.ToString();
+            awayScore.Text = awayScoreVal.ToString();
 
             homeScoreMinus.Click += (sender, e) => {
                 if (homeScoreVal > 0)
                 {
                     homeScoreVal--;
                     homeScore.Text = homeScoreVal.ToString();
+                    Game.UpdateScores(homeScoreVal, awayScoreVal);
                 }
             };
 
@@ -129,6 +137,7 @@ namespace TeamManager3
             {
                 homeScoreVal++;
                 homeScore.Text = homeScoreVal.ToString();
+                Game.UpdateScores(homeScoreVal, awayScoreVal);
             };
 
             awayScoreMinus.Click += (sender, e) =>
@@ -137,6 +146,7 @@ namespace TeamManager3
                 {
                     awayScoreVal--;
                     awayScore.Text = awayScoreVal.ToString();
+                    Game.UpdateScores(homeScoreVal, awayScoreVal);
                 }
             };
 
@@ -144,6 +154,7 @@ namespace TeamManager3
             {
                 awayScoreVal++;
                 awayScore.Text = awayScoreVal.ToString();
+                Game.UpdateScores(homeScoreVal, awayScoreVal);
             };
 
             var bottomMenu = FindViewById<Toolbar>(Resource.Id.toolbar_bottom);
@@ -260,6 +271,7 @@ namespace TeamManager3
             awayScoreVal = 0;
             homeScore.Text = homeScoreVal.ToString();
             awayScore.Text = awayScoreVal.ToString();
+            Game.DeleteScores();
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)

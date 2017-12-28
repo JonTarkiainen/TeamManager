@@ -27,6 +27,7 @@ namespace TeamManager3
             using (var conn = GetConnection())
             {
                 conn.CreateTable<Player>();
+                conn.CreateTable<Game>();
             }
         }
 
